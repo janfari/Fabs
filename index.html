@@ -1,1 +1,50 @@
-<h1> Hi! </h1>
+<!DOCKTYPE html>
+<html>
+<head>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div>
+        <button type="randomSet" onclick="makeRandomSet()">Make A Random Arm Set</button>
+        <textarea name="randomSet" id="randomSet" rows=5 cols=30></textarea>
+    </div>
+
+    <script>
+
+        var arms = Array(
+            "Push ups",
+            "Triangle pushups",
+            "High <-> low plank",
+            "High plank shoulder tap",
+            "Dips",
+            "Inchworms",
+            "Pulse Backs",
+            "Gorilla pushups",
+            "Plank Hops",
+            "Star pushups",
+            "Bicep curls",
+            "Arm circles",
+            "Static hold",
+            "Shoulder press",
+            "Rows/lawnmowers",
+            "Arm flys front and side",
+            "Tricep kickbacks",
+            "Back scratcher",
+            "Weighted Rainbow",
+            "Chest flys",
+            "Deadlift",
+        );
+
+
+        function makeRandomSet() {
+            var randomSet = [];
+            var bucket = d3.shuffle(d3.range(arms.length));
+            for (let i = 0; i < 5; i++) {
+                randomSet += arms[bucket[i]] + "\n";
+            }
+            document.getElementById('randomSet').value = randomSet;
+        }
+
+        </script>
+</body>
